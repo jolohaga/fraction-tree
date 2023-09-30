@@ -1,0 +1,15 @@
+.DS_Store
+.byebug_history
+.yardoc
+.rspec
+doc
+tmp
+notes
+.Gemfile
+/.bundle
+/.ruby-version
+/.tm_properties
+pkg
+Gemfile.lock
+fraction-tree-*.gem
+
