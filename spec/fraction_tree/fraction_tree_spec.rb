@@ -89,7 +89,7 @@ RSpec.describe FractionTree do
       let(:expected_child_node) { described_class::Node.new(12,8) }
 
       it "returns a child of the non-Farey compliant parents" do
-        expect(described_class.child_of(5/4r, 7/4r, strict_farey: false)).to eq expected_child_node
+        expect(described_class.child_of(5/4r, 7/4r, strict_neighbors: false)).to eq expected_child_node
       end
     end
   end
@@ -156,7 +156,7 @@ RSpec.describe FractionTree do
       let(:expected_nodes) { [described_class::Node.new(1,1), described_class::Node.new(10,7), described_class::Node.new(9,6), described_class::Node.new(17,11), described_class::Node.new(8,5), described_class::Node.new(23,14), described_class::Node.new(15,9), described_class::Node.new(22,13), described_class::Node.new(7,4)] }
 
       it "returns an array of non-Farey compliant fractions" do
-        expect(described_class.descendants_of(parent1, parent2, depth, strict_farey: false)).to eq expected_nodes
+        expect(described_class.descendants_of(parent1, parent2, depth, strict_neighbors: false)).to eq expected_nodes
       end
     end
   end

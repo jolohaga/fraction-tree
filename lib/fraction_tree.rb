@@ -129,8 +129,8 @@ class FractionTree
     # @param number1 one of two parents
     # @param number2 two of two parents
     #
-    def child_of(number1, number2, strict_farey: true)
-      return nil unless farey_pair?(number1, number2) || !strict_farey
+    def child_of(number1, number2, strict_neighbors: true)
+      return nil unless farey_neighbors?(number1, number2) || !strict_neighbors
       Node.new(number1.numerator, number1.denominator) + Node.new(number2.numerator, number2.denominator)
     end
 
@@ -143,8 +143,8 @@ class FractionTree
     # @param parent1 one of two parents
     # @param parent2 two of two parents
     #
-    def descendants_of(parent1, parent2, depth=5, strict_farey: true)
-      return [] unless farey_pair?(parent1, parent2) || !strict_farey
+    def descendants_of(parent1, parent2, depth=5, strict_neighbors: true)
+      return [] unless farey_neighbors?(parent1, parent2) || !strict_neighbors
       segment = [Node.new(parent1.numerator, parent1.denominator), Node.new(parent2.numerator, parent2.denominator)]
       sequence(depth, segment: segment)
     end
@@ -156,8 +156,6 @@ class FractionTree
     #
     # @param number to walk toward
     # @param limit the depth of the walk. Useful for irrational numbers
-    #
-    # https://anaphoria.com/wilsonintroMOS.html#zig
     #
     def quotient_walk(number, limit: 10, segment: computed_base_segment(number))
       iterating_quotients = ContinuedFraction.new(number, limit).quotients.drop(1)
@@ -209,7 +207,7 @@ class FractionTree
       _sequence(depth - 1, segment: [segment.first, mediant]) + [mediant] + _sequence(depth - 1, segment: [mediant, segment.last])
     end
 
-    def farey_pair?(num1, num2)
+    def farey_neighbors?(num1, num2)
       (num1.numerator * num2.denominator - num1.denominator * num2.numerator).abs == 1
     end
   end
