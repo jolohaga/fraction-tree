@@ -11,6 +11,7 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency "continued_fractions", ["~> 1.8"]
   spec.add_development_dependency "rspec", ["~> 3.2"]
   spec.add_development_dependency "byebug", ["~> 11.1"]
+  spec.add_development_dependency "yard", ["~> 0.9"]
   spec.homepage    = "https://rubygems.org/gems/fraction-tree"
   spec.license     = "MIT"
   spec.date        = Date.today.to_s
