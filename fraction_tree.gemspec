@@ -2,12 +2,15 @@ require "date"
 
 Gem::Specification.new do |spec|
   spec.name        = "fraction-tree"
-  spec.version     = "0.1.0"
+  spec.version     = "0.1.1"
   spec.summary     = "Fraction tree"
   spec.description = "A collection of Stern-Brocot based models and methods"
   spec.authors     = ["Jose Hales-Garcia"]
   spec.email       = "jose@halesgarcia.com"
   spec.homepage    = "https://jolohaga.github.io/fraction-tree/"
+  spec.metadata = {
+    "source_code_uri" => "https://github.com/jolohaga/fraction-tree"
+  }
   spec.files       = Dir.glob("lib/**/*")
   spec.add_runtime_dependency "continued_fractions", ["~> 1.8"]
   spec.add_development_dependency "rspec", ["~> 3.2"]
