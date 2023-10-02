@@ -4,7 +4,7 @@ A collection of Stern-Brocot based models and methods.
 
 ## Installing
 
-    gem install fraction_tree
+    gem install fraction-tree
 
 ## Authors
 
