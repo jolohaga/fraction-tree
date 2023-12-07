@@ -99,7 +99,32 @@
   
 </div>
 
-<div id="subclasses">
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Author:</p>
+<ul class="author">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'>
+<p>Jose Hales-Garcia</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><div id="subclasses">
   <h2>Direct Known Subclasses</h2>
   <p class="children"><span class='object_link'><a href="FareyTree.html" title="FareyTree (class)">FareyTree</a></span>, <span class='object_link'><a href="OctaveReducedTree.html" title="OctaveReducedTree (class)">OctaveReducedTree</a></span>, <span class='object_link'><a href="ScaleTree.html" title="ScaleTree (class)">ScaleTree</a></span>, <span class='object_link'><a href="SternBrocotTree.html" title="SternBrocotTree (class)">SternBrocotTree</a></span></p>
 </div>
@@ -469,12 +494,12 @@
       <pre class="lines">
 
 
-11
-12
-13</pre>
+13
+14
+15</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/fraction_tree.rb', line 11</span>
+      <pre class="code"><span class="info file"># File 'lib/fraction_tree.rb', line 13</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_base_segment'>base_segment</span>
   <span class='lbracket'>[</span><span class='const'><span class='object_link'><a href="FractionTree/Node.html" title="FractionTree::Node (class)">Node</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="FractionTree/Node.html#initialize-instance_method" title="FractionTree::Node#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='int'>0</span><span class='comma'>,</span><span class='int'>1</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='const'><span class='object_link'><a href="FractionTree/Node.html" title="FractionTree::Node (class)">Node</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="FractionTree/Node.html#initialize-instance_method" title="FractionTree::Node#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='int'>1</span><span class='comma'>,</span><span class='int'>0</span><span class='rparen'>)</span><span class='rbracket'>]</span>
@@ -519,7 +544,7 @@ FractionTree.child_of(7/4r, 4/3r) =&gt; nil</code></pre>
         <span class='name'>number1</span>
       
       
-        <span class='type'></span>
+        <span class='type'>(<tt>Rational</tt>)</span>
       
       
       
@@ -535,13 +560,31 @@ FractionTree.child_of(7/4r, 4/3r) =&gt; nil</code></pre>
         <span class='name'>number2</span>
       
       
-        <span class='type'></span>
+        <span class='type'>(<tt>Rational</tt>)</span>
       
       
       
         &mdash;
         <div class='inline'>
 <p>two of two parents</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>strict_neighbors</span>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>true</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>whether to apply the strict Farey tree neighbor requirement</p>
 </div>
       
     </li>
@@ -573,13 +616,13 @@ FractionTree.child_of(7/4r, 4/3r) =&gt; nil</code></pre>
       <pre class="lines">
 
 
-132
-133
-134
-135</pre>
+137
+138
+139
+140</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/fraction_tree.rb', line 132</span>
+      <pre class="code"><span class="info file"># File 'lib/fraction_tree.rb', line 137</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_child_of'>child_of</span><span class='lparen'>(</span><span class='id identifier rubyid_number1'>number1</span><span class='comma'>,</span> <span class='id identifier rubyid_number2'>number2</span><span class='comma'>,</span> <span class='label'>strict_neighbors:</span> <span class='kw'>true</span><span class='rparen'>)</span>
   <span class='kw'>return</span> <span class='kw'>nil</span> <span class='kw'>unless</span> <span class='id identifier rubyid_farey_neighbors?'>farey_neighbors?</span><span class='lparen'>(</span><span class='id identifier rubyid_number1'>number1</span><span class='comma'>,</span> <span class='id identifier rubyid_number2'>number2</span><span class='rparen'>)</span> <span class='op'>||</span> <span class='op'>!</span><span class='id identifier rubyid_strict_neighbors'>strict_neighbors</span>
@@ -625,7 +668,7 @@ FractionTree.child_of(7/4r, 4/3r) =&gt; nil</code></pre>
         <span class='name'>number1</span>
       
       
-        <span class='type'></span>
+        <span class='type'>(<tt>Rational</tt>)</span>
       
       
       
@@ -641,7 +684,7 @@ FractionTree.child_of(7/4r, 4/3r) =&gt; nil</code></pre>
         <span class='name'>number2</span>
       
       
-        <span class='type'></span>
+        <span class='type'>(<tt>Rational</tt>)</span>
       
       
       
@@ -679,12 +722,12 @@ FractionTree.child_of(7/4r, 4/3r) =&gt; nil</code></pre>
       <pre class="lines">
 
 
-106
-107
-108</pre>
+110
+111
+112</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/fraction_tree.rb', line 106</span>
+      <pre class="code"><span class="info file"># File 'lib/fraction_tree.rb', line 110</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_common_ancestors_between'>common_ancestors_between</span><span class='lparen'>(</span><span class='id identifier rubyid_number1'>number1</span><span class='comma'>,</span> <span class='id identifier rubyid_number2'>number2</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path_to'>path_to</span><span class='lparen'>(</span><span class='id identifier rubyid_number1'>number1</span><span class='rparen'>)</span> <span class='op'>&amp;</span> <span class='id identifier rubyid_path_to'>path_to</span><span class='lparen'>(</span><span class='id identifier rubyid_number2'>number2</span><span class='rparen'>)</span>
@@ -729,7 +772,7 @@ FractionTree.child_of(7/4r, 4/3r) =&gt; nil</code></pre>
         <span class='name'>number</span>
       
       
-        <span class='type'></span>
+        <span class='type'>(<tt>Rational</tt>)</span>
       
       
       
@@ -745,7 +788,7 @@ FractionTree.child_of(7/4r, 4/3r) =&gt; nil</code></pre>
         <span class='name'>depth</span>
       
       
-        <span class='type'></span>
+        <span class='type'>(<tt>Integer</tt>)</span>
       
       
         <em class="default">(defaults to: <tt>5</tt>)</em>
@@ -785,13 +828,13 @@ FractionTree.child_of(7/4r, 4/3r) =&gt; nil</code></pre>
       <pre class="lines">
 
 
-118
-119
-120
-121</pre>
+122
+123
+124
+125</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/fraction_tree.rb', line 118</span>
+      <pre class="code"><span class="info file"># File 'lib/fraction_tree.rb', line 122</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_descendancy_from'>descendancy_from</span><span class='lparen'>(</span><span class='id identifier rubyid_number'>number</span><span class='comma'>,</span> <span class='id identifier rubyid_depth'>depth</span><span class='op'>=</span><span class='int'>5</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_parent1'>parent1</span><span class='comma'>,</span> <span class='id identifier rubyid_parent2'>parent2</span> <span class='op'>=</span> <span class='id identifier rubyid_parents_of'>parents_of</span><span class='lparen'>(</span><span class='id identifier rubyid_number'>number</span><span class='rparen'>)</span>
@@ -837,7 +880,7 @@ FractionTree.child_of(7/4r, 4/3r) =&gt; nil</code></pre>
         <span class='name'>parent1</span>
       
       
-        <span class='type'></span>
+        <span class='type'>(<tt>Rational</tt>)</span>
       
       
       
@@ -853,13 +896,49 @@ FractionTree.child_of(7/4r, 4/3r) =&gt; nil</code></pre>
         <span class='name'>parent2</span>
       
       
-        <span class='type'></span>
+        <span class='type'>(<tt>Rational</tt>)</span>
       
       
       
         &mdash;
         <div class='inline'>
 <p>two of two parents</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>depth</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>5</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the depth to collect</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>strict_neighbors</span>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>true</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>whether to apply the strict Farey tree neighbor requirement</p>
 </div>
       
     </li>
@@ -891,14 +970,14 @@ FractionTree.child_of(7/4r, 4/3r) =&gt; nil</code></pre>
       <pre class="lines">
 
 
-146
-147
-148
-149
-150</pre>
+153
+154
+155
+156
+157</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/fraction_tree.rb', line 146</span>
+      <pre class="code"><span class="info file"># File 'lib/fraction_tree.rb', line 153</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_descendants_of'>descendants_of</span><span class='lparen'>(</span><span class='id identifier rubyid_parent1'>parent1</span><span class='comma'>,</span> <span class='id identifier rubyid_parent2'>parent2</span><span class='comma'>,</span> <span class='id identifier rubyid_depth'>depth</span><span class='op'>=</span><span class='int'>5</span><span class='comma'>,</span> <span class='label'>strict_neighbors:</span> <span class='kw'>true</span><span class='rparen'>)</span>
   <span class='kw'>return</span> <span class='lbracket'>[</span><span class='rbracket'>]</span> <span class='kw'>unless</span> <span class='id identifier rubyid_farey_neighbors?'>farey_neighbors?</span><span class='lparen'>(</span><span class='id identifier rubyid_parent1'>parent1</span><span class='comma'>,</span> <span class='id identifier rubyid_parent2'>parent2</span><span class='rparen'>)</span> <span class='op'>||</span> <span class='op'>!</span><span class='id identifier rubyid_strict_neighbors'>strict_neighbors</span>
@@ -963,18 +1042,18 @@ FractionTree.child_of(7/4r, 4/3r) =&gt; nil</code></pre>
       <pre class="lines">
 
 
-185
-186
-187
-188
-189
-190
-191
-192
-193</pre>
+193
+194
+195
+196
+197
+198
+199
+200
+201</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/fraction_tree.rb', line 185</span>
+      <pre class="code"><span class="info file"># File 'lib/fraction_tree.rb', line 193</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_numeric_sequence'>numeric_sequence</span>
   <span class='kw'>return</span> <span class='id identifier rubyid_enum_for'>enum_for</span> <span class='symbol'>:numeric_sequence</span> <span class='kw'>unless</span> <span class='id identifier rubyid_block_given?'>block_given?</span>
@@ -1022,10 +1101,10 @@ FractionTree.parents_of(Math::PI) =&gt; [(447288330638589/142376297616907), (436
   
     <li>
       
-        <span class='name'>num</span>
+        <span class='name'>number</span>
       
       
-        <span class='type'></span>
+        <span class='type'>(<tt>Rational</tt>)</span>
       
       
       
@@ -1063,12 +1142,12 @@ FractionTree.parents_of(Math::PI) =&gt; [(447288330638589/142376297616907), (436
       <pre class="lines">
 
 
-94
-95
-96</pre>
+98
+99
+100</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/fraction_tree.rb', line 94</span>
+      <pre class="code"><span class="info file"># File 'lib/fraction_tree.rb', line 98</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_parents_of'>parents_of</span><span class='lparen'>(</span><span class='id identifier rubyid_number'>number</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path_to'>path_to</span><span class='lparen'>(</span><span class='id identifier rubyid_number'>number</span><span class='comma'>,</span> <span class='label'>find_parents:</span> <span class='kw'>true</span><span class='rparen'>)</span>
@@ -1112,13 +1191,49 @@ FractionTree.parents_of(Math::PI) =&gt; [(447288330638589/142376297616907), (436
         <span class='name'>number</span>
       
       
-        <span class='type'></span>
+        <span class='type'>(<tt>Rational</tt>)</span>
       
       
       
         &mdash;
         <div class='inline'>
 <p>the target the fraction path leads to</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>find_parents</span>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>false</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>list all ancestors or only immediate parents</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>segment</span>
+      
+      
+        <span class='type'>(<tt>Array</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>base_segment</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>a tuple of [FractionTree::Node], defining the segment’s starting left and right boundaries</p>
 </div>
       
     </li>
@@ -1150,10 +1265,6 @@ FractionTree.parents_of(Math::PI) =&gt; [(447288330638589/142376297616907), (436
       <pre class="lines">
 
 
-63
-64
-65
-66
 67
 68
 69
@@ -1171,10 +1282,14 @@ FractionTree.parents_of(Math::PI) =&gt; [(447288330638589/142376297616907), (436
 81
 82
 83
-84</pre>
+84
+85
+86
+87
+88</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/fraction_tree.rb', line 63</span>
+      <pre class="code"><span class="info file"># File 'lib/fraction_tree.rb', line 67</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_path_to'>path_to</span><span class='lparen'>(</span><span class='id identifier rubyid_number'>number</span><span class='comma'>,</span> <span class='label'>find_parents:</span> <span class='kw'>false</span><span class='comma'>,</span> <span class='label'>segment:</span> <span class='id identifier rubyid_base_segment'>base_segment</span><span class='rparen'>)</span>
   <span class='kw'>return</span> <span class='const'><span class='object_link'><a href="FractionTree/Node.html" title="FractionTree::Node (class)">Node</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="FractionTree/Node.html#initialize-instance_method" title="FractionTree::Node#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_number'>number</span><span class='period'>.</span><span class='id identifier rubyid_numerator'>numerator</span><span class='comma'>,</span> <span class='id identifier rubyid_number'>number</span><span class='period'>.</span><span class='id identifier rubyid_denominator'>denominator</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_number'>number</span><span class='period'>.</span><span class='id identifier rubyid_zero?'>zero?</span>
@@ -1238,7 +1353,7 @@ FractionTree.parents_of(Math::PI) =&gt; [(447288330638589/142376297616907), (436
         <span class='name'>number</span>
       
       
-        <span class='type'></span>
+        <span class='type'>(<tt>Numeric</tt>)</span>
       
       
       
@@ -1254,7 +1369,7 @@ FractionTree.parents_of(Math::PI) =&gt; [(447288330638589/142376297616907), (436
         <span class='name'>limit</span>
       
       
-        <span class='type'></span>
+        <span class='type'>(<tt>Integer</tt>)</span>
       
       
         <em class="default">(defaults to: <tt>10</tt>)</em>
@@ -1263,6 +1378,24 @@ FractionTree.parents_of(Math::PI) =&gt; [(447288330638589/142376297616907), (436
         &mdash;
         <div class='inline'>
 <p>the depth of the walk. Useful for irrational numbers</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>segment</span>
+      
+      
+        <span class='type'>(<tt>Array</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>computed_base_segment(number)</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the tuple of [FractionTree::Node] defining the segment of the tree</p>
 </div>
       
     </li>
@@ -1294,14 +1427,6 @@ FractionTree.parents_of(Math::PI) =&gt; [(447288330638589/142376297616907), (436
       <pre class="lines">
 
 
-160
-161
-162
-163
-164
-165
-166
-167
 168
 169
 170
@@ -1312,10 +1437,18 @@ FractionTree.parents_of(Math::PI) =&gt; [(447288330638589/142376297616907), (436
 175
 176
 177
-178</pre>
+178
+179
+180
+181
+182
+183
+184
+185
+186</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/fraction_tree.rb', line 160</span>
+      <pre class="code"><span class="info file"># File 'lib/fraction_tree.rb', line 168</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_quotient_walk'>quotient_walk</span><span class='lparen'>(</span><span class='id identifier rubyid_number'>number</span><span class='comma'>,</span> <span class='label'>limit:</span> <span class='int'>10</span><span class='comma'>,</span> <span class='label'>segment:</span> <span class='id identifier rubyid_computed_base_segment'>computed_base_segment</span><span class='lparen'>(</span><span class='id identifier rubyid_number'>number</span><span class='rparen'>)</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_iterating_quotients'>iterating_quotients</span> <span class='op'>=</span> <span class='const'>ContinuedFraction</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_number'>number</span><span class='comma'>,</span> <span class='id identifier rubyid_limit'>limit</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_quotients'>quotients</span><span class='period'>.</span><span class='id identifier rubyid_drop'>drop</span><span class='lparen'>(</span><span class='int'>1</span><span class='rparen'>)</span>
@@ -1376,7 +1509,7 @@ FractionTree.parents_of(Math::PI) =&gt; [(447288330638589/142376297616907), (436
         <span class='name'>depth</span>
       
       
-        <span class='type'></span>
+        <span class='type'>(<tt>Integer</tt>)</span>
       
       
         <em class="default">(defaults to: <tt>5</tt>)</em>
@@ -1394,7 +1527,7 @@ FractionTree.parents_of(Math::PI) =&gt; [(447288330638589/142376297616907), (436
         <span class='name'>segment</span>
       
       
-        <span class='type'></span>
+        <span class='type'>(<tt>Array</tt>)</span>
       
       
         <em class="default">(defaults to: <tt>base_segment</tt>)</em>
@@ -1402,7 +1535,7 @@ FractionTree.parents_of(Math::PI) =&gt; [(447288330638589/142376297616907), (436
       
         &mdash;
         <div class='inline'>
-<p>a tuple array defining the segment of the tree to collect nodes. The elements of the tuple must be instances of FractionTree::Node</p>
+<p>a tuple array of [FractionTree::Node] defining the segment of the tree to collect nodes.</p>
 </div>
       
     </li>
@@ -1434,12 +1567,12 @@ FractionTree.parents_of(Math::PI) =&gt; [(447288330638589/142376297616907), (436
       <pre class="lines">
 
 
-53
-54
-55</pre>
+55
+56
+57</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/fraction_tree.rb', line 53</span>
+      <pre class="code"><span class="info file"># File 'lib/fraction_tree.rb', line 55</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_sequence'>sequence</span><span class='lparen'>(</span><span class='id identifier rubyid_depth'>depth</span><span class='op'>=</span><span class='int'>5</span><span class='comma'>,</span> <span class='label'>segment:</span> <span class='id identifier rubyid_base_segment'>base_segment</span><span class='rparen'>)</span>
   <span class='lbracket'>[</span><span class='id identifier rubyid_segment'>segment</span><span class='period'>.</span><span class='id identifier rubyid_first'>first</span><span class='rbracket'>]</span><span class='op'>+</span><span class='id identifier rubyid__sequence'>_sequence</span><span class='lparen'>(</span><span class='id identifier rubyid_depth'>depth</span><span class='comma'>,</span> <span class='label'>segment:</span><span class='rparen'>)</span><span class='op'>+</span><span class='lbracket'>[</span><span class='id identifier rubyid_segment'>segment</span><span class='period'>.</span><span class='id identifier rubyid_last'>last</span><span class='rbracket'>]</span>
@@ -1525,8 +1658,6 @@ FractionTree.parents_of(Math::PI) =&gt; [(447288330638589/142376297616907), (436
       <pre class="lines">
 
 
-25
-26
 27
 28
 29
@@ -1543,10 +1674,12 @@ FractionTree.parents_of(Math::PI) =&gt; [(447288330638589/142376297616907), (436
 40
 41
 42
-43</pre>
+43
+44
+45</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/fraction_tree.rb', line 25</span>
+      <pre class="code"><span class="info file"># File 'lib/fraction_tree.rb', line 27</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_tree'>tree</span><span class='lparen'>(</span><span class='id identifier rubyid_depth'>depth</span><span class='op'>=</span><span class='const'>DEFAULT_TREE_DEPTH</span><span class='rparen'>)</span>
   <span class='const'>Array</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_depth'>depth</span><span class='comma'>,</span> <span class='int'>0</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_tap'>tap</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_sbt'>sbt</span><span class='op'>|</span>
@@ -1577,7 +1710,7 @@ FractionTree.parents_of(Math::PI) =&gt; [(447288330638589/142376297616907), (436
 </div>
 
       <div id="footer">
-  Generated on Tue Oct  3 07:58:21 2023 by
+  Generated on Thu Dec  7 10:26:42 2023 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.34 (ruby-3.2.2).
 </div>
