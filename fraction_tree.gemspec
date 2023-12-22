@@ -2,7 +2,7 @@ require "date"
 
 Gem::Specification.new do |spec|
   spec.name        = "fraction-tree"
-  spec.version     = "1.0.1"
+  spec.version     = "1.0.2"
   spec.summary     = "Fraction tree"
   spec.description = "A collection of Stern-Brocot based models and methods"
   spec.authors     = ["Jose Hales-Garcia"]
@@ -14,7 +14,7 @@ Gem::Specification.new do |spec|
   spec.files       = Dir.glob("lib/**/*")
   spec.required_ruby_version = Gem::Requirement.new(">= 3.1")
   spec.required_rubygems_version = Gem::Requirement.new(">= 3.1")
-  spec.add_runtime_dependency "continued_fractions", ["~> 2.0"]
+  spec.add_runtime_dependency "continued_fractions", ["~> 2.1"]
   spec.add_development_dependency "rspec", ["~> 3.2"]
   spec.add_development_dependency "byebug", ["~> 11.1"]
   spec.add_development_dependency "yard", ["~> 0.9"]
