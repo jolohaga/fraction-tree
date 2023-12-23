@@ -1,4 +1,5 @@
 # FractionTree
+[![Gem Version](https://badge.fury.io/rb/fraction-tree.svg)](https://badge.fury.io/rb/fraction-tree)
 
 A collection of Stern-Brocot based models and methods.
 
