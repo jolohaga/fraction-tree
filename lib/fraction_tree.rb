@@ -1,3 +1,4 @@
+require "bigdecimal/util"
 require "continued_fractions"
 
 # @author Jose Hales-Garcia
@@ -66,6 +67,8 @@ class FractionTree
     #
     def path_to(number, find_parents: false, segment: base_segment)
       return Node.new(number.numerator, number.denominator) if number.zero?
+      number = number.kind_of?(Float) ? number.to_d : number
+
       q = Node.new(number.numerator, number.denominator)
       l = segment.first
       h = segment.last
@@ -220,13 +223,6 @@ class FractionTree
     end
   end
 
-  # @attr_reader numerator [Integer]
-  #   The numerator of the node
-  # @attr_reader denominator [Integer]
-  #   The denominator of the node
-  # @attr_reader weight [Rational|Infinity]
-  #   The value of the node
-  #
   class Node
     include Comparable
 
@@ -256,8 +252,16 @@ class FractionTree
     # Needed for intersection operations to work.
     # https://blog.mnishiguchi.com/ruby-intersection-of-object-arrays
     # https://shortrecipes.blogspot.com/2006/10/ruby-intersection-of-two-arrays-of.html
+    # Also, allows using with Set, which uses Hash as storage and equality of its elements is determined according to Object#eql? and Object#hash.
+    #
     def eql?(rhs)
-      rhs.kind_of?(self.class) && weight == rhs.weight
+       rhs.instance_of?(self.class) && weight == rhs.weight
+    end
+
+    def hash
+       p, q = 17, 37
+       p = q * @id.hash
+       p = q * @name.hash
     end
 
     def +(rhs)

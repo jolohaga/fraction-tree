@@ -4,6 +4,7 @@ Bundler.setup
 require "rubygems"
 require "rspec"
 require "byebug"
+require "rspec-benchmark"
 require "fraction_tree"
 
 RSpec.configure do |config|
@@ -15,4 +16,5 @@ RSpec.configure do |config|
   config.formatter = :documentation
   config.filter_run focus: true
   config.run_all_when_everything_filtered = true
+  config.include RSpec::Benchmark::Matchers
 end

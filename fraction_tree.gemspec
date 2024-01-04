@@ -2,7 +2,7 @@ require "date"
 
 Gem::Specification.new do |spec|
   spec.name        = "fraction-tree"
-  spec.version     = "1.0.2"
+  spec.version     = "1.0.3"
   spec.summary     = "Fraction tree"
   spec.description = "A collection of Stern-Brocot based models and methods"
   spec.authors     = ["Jose Hales-Garcia"]
@@ -18,6 +18,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rspec", ["~> 3.2"]
   spec.add_development_dependency "byebug", ["~> 11.1"]
   spec.add_development_dependency "yard", ["~> 0.9"]
+  spec.add_development_dependency "rspec-benchmark", ["~> 0.6"]
   spec.license     = "MIT"
   spec.date        = Date.today.to_s
 end

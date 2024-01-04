@@ -63,11 +63,30 @@ RSpec.describe FractionTree do
   end
 
   describe ".path_to" do
-    let(:expected_nodes) { [described_class::Node.new(1,1), described_class::Node.new(2,1), described_class::Node.new(3,2), described_class::Node.new(4,3), described_class::Node.new(5,4), described_class::Node.new(6,5), described_class::Node.new(7,6), described_class::Node.new(8,7), described_class::Node.new(9,8), described_class::Node.new(10,9), described_class::Node.new(11,10)] }
-    let(:number) { 11/10r }
+    context "with Rational" do
+      let(:expected_nodes) { [described_class::Node.new(1,1), described_class::Node.new(2,1), described_class::Node.new(3,2), described_class::Node.new(4,3), described_class::Node.new(5,4), described_class::Node.new(6,5), described_class::Node.new(7,6), described_class::Node.new(8,7), described_class::Node.new(9,8), described_class::Node.new(10,9), described_class::Node.new(11,10)] }
+      let(:number) { 11/10r }
 
-    it "returns the list of nodes leading to n" do
-      expect(described_class.path_to(number)).to eq expected_nodes
+      it "returns the list of nodes leading to n" do
+        expect(described_class.path_to(number)).to eq expected_nodes
+      end
+    end
+
+    context "with Float" do
+      let(:number) { Math::PI }
+
+      it "returns a large list reasonably quickly" do
+        expect(described_class.path_to(number).count).to eq 412
+        expect{ described_class.path_to(number) }.to perform_under(0.3).ms
+      end
+
+      context "with a Float of finite length" do
+        let(:number) { 1.247265 }
+
+        it "returns a list of reasonable length" do
+          expect(described_class.path_to(number).count).to eq 60
+        end
+      end
     end
   end
 
@@ -100,6 +119,15 @@ RSpec.describe FractionTree do
 
     it "returns the parents of the fraction tree node" do
       expect(described_class.parents_of(number)).to eq expected_nodes
+    end
+
+    context "with Float of finite length" do
+      let(:expected_nodes) { [ described_class::Node.new(47542,38117), described_class::Node.new(201911,161883)] }
+      let(:number) { 1.247265 }
+
+      it "returns the parents of 1247265/1000000 and not of 2808591094616131/2251799813685248" do
+        expect(described_class.parents_of(number).inject(:+)).to eq expected_nodes.inject(:+)
+      end
     end
   end
 
