@@ -203,6 +203,37 @@ class FractionTree
       end
     end
 
+    # @return [Array] of Farey neighbors to the given number. A Farey neighbor is a number b/c, who's relationship to a/b is such that ad − bc = 1, when c/d < a/b and bc − ad = 1 when c/d > a/b.
+    # @example
+    #   FractionTree.farey_neighbors(3/2r, 10)
+    #   => [(1/1), (2/1), (4/3), (5/3), (7/5), (8/5), (10/7), (11/7), (13/9), (14/9)]
+    # @param number with neighbors
+    # @param range of harmonic series to search
+    #
+    def farey_neighbors(number, range = 10**(decimal_power(number.numerator)+2))
+      ratio = number.to_r
+      denominator = ratio.denominator
+
+      [].tap do |collection|
+        (1..range-1).each do |i|
+          lower, upper = plus_minus(ratio, Rational(1,i*denominator))
+          collection << lower if farey_neighbors?(ratio, lower)
+          collection << upper if farey_neighbors?(ratio, upper)
+        end
+      end
+    end
+
+    # @return [Boolean] whether two numbers are Farey neighbors
+    # @example
+    #   FractionTree.farey_neighbors?(3/2r, 4/3r) => true
+    #   FractionTree.farey_neighbors?(3/2r, 7/4r) => false
+    # @param num1 of comparison
+    # @param num2 of comparison
+    #
+    def farey_neighbors?(num1, num2)
+      (num1.numerator * num2.denominator - num1.denominator * num2.numerator).abs == 1
+    end
+
     private
     def computed_base_segment(number)
       floor = number.floor
@@ -218,8 +249,12 @@ class FractionTree
       _sequence(depth - 1, segment: [segment.first, mediant]) + [mediant] + _sequence(depth - 1, segment: [mediant, segment.last])
     end
 
-    def farey_neighbors?(num1, num2)
-      (num1.numerator * num2.denominator - num1.denominator * num2.numerator).abs == 1
+    def plus_minus(number, diff)
+      [number - diff, number + diff]
+    end
+
+    def decimal_power(number)
+      Math.log10(number.abs).floor
     end
   end
 

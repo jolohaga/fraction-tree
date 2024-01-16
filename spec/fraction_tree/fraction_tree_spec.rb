@@ -198,9 +198,16 @@ RSpec.describe FractionTree do
     end
   end
 
-  describe ".next(q, n)" do
-    it "does something" do
+  describe ".farey_neighbors" do
+    it "returns a sequence of Farey neighbors to the given number" do
+      expect(described_class.farey_neighbors(5/4r)).to eq [(1/1r), (4/3r), (6/5r), (9/7r), (11/9r), (14/11r), (16/13r), (19/15r), (21/17r), (24/19r), (26/21r), (29/23r), (31/25r), (34/27r), (36/29r), (39/31r), (41/33r), (44/35r), (46/37r), (49/39r), (51/41r), (54/43r), (56/45r), (59/47r), (61/49r), (64/51r), (66/53r), (69/55r), (71/57r), (74/59r), (76/61r), (79/63r), (81/65r), (84/67r), (86/69r), (89/71r), (91/73r), (94/75r), (96/77r), (99/79r), (101/81r), (104/83r), (106/85r), (109/87r), (111/89r), (114/91r), (116/93r), (119/95r), (121/97r), (124/99r)]
+    end
+  end
 
+  describe ".farey_neighbors?" do
+    it "returns true if neighbors, false otherwise" do
+      expect(described_class.farey_neighbors?(5/4r, 4/3r)).to eq true
+      expect(described_class.farey_neighbors?(5/4r, 8/5r)).to eq false
     end
   end
 end
