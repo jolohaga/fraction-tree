@@ -64,7 +64,7 @@ RSpec.describe FractionTree do
 
   describe ".path_to" do
     context "with Rational" do
-      let(:expected_nodes) { [described_class::Node.new(1,1), described_class::Node.new(2,1), described_class::Node.new(3,2), described_class::Node.new(4,3), described_class::Node.new(5,4), described_class::Node.new(6,5), described_class::Node.new(7,6), described_class::Node.new(8,7), described_class::Node.new(9,8), described_class::Node.new(10,9), described_class::Node.new(11,10)] }
+      let(:expected_nodes) { [described_class::Node.new(0,1), described_class::Node.new(1,0), described_class::Node.new(1,1), described_class::Node.new(2,1), described_class::Node.new(3,2), described_class::Node.new(4,3), described_class::Node.new(5,4), described_class::Node.new(6,5), described_class::Node.new(7,6), described_class::Node.new(8,7), described_class::Node.new(9,8), described_class::Node.new(10,9), described_class::Node.new(11,10)] }
       let(:number) { 11/10r }
 
       it "returns the list of nodes leading to n" do
@@ -76,7 +76,7 @@ RSpec.describe FractionTree do
       let(:number) { Math::PI }
 
       it "returns a large list reasonably quickly" do
-        expect(described_class.path_to(number).count).to eq 412
+        expect(described_class.path_to(number).count).to eq 414
         expect{ described_class.path_to(number) }.to perform_under(0.3).ms
       end
 
@@ -84,7 +84,7 @@ RSpec.describe FractionTree do
         let(:number) { 1.247265 }
 
         it "returns a list of reasonable length" do
-          expect(described_class.path_to(number).count).to eq 60
+          expect(described_class.path_to(number).count).to eq 62
         end
       end
     end
@@ -134,7 +134,7 @@ RSpec.describe FractionTree do
   describe ".common_ancestors_between" do
     let(:number1) { 7/6r }
     let(:number2) { 15/13r }
-    let(:expected_nodes) { [described_class::Node.new(1,1), described_class::Node.new(2,1), described_class::Node.new(3,2), described_class::Node.new(4,3), described_class::Node.new(5,4), described_class::Node.new(6,5), described_class::Node.new(7,6)] }
+    let(:expected_nodes) { [described_class::Node.new(0,1), described_class::Node.new(1,0),described_class::Node.new(1,1), described_class::Node.new(2,1), described_class::Node.new(3,2), described_class::Node.new(4,3), described_class::Node.new(5,4), described_class::Node.new(6,5), described_class::Node.new(7,6)] }
 
     it "returns the nodes in common between the paths to the two numbers" do
       expect(described_class.common_ancestors_between(number1, number2)).to eq expected_nodes
