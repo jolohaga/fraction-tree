@@ -74,7 +74,7 @@ class FractionTree
       h = segment.last
       not_found = true
       parents = []
-      results = []
+      results = segment
       while not_found
         m = (l + h)
         if m < q
