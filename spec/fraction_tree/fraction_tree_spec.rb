@@ -1,5 +1,43 @@
 require "spec_helper"
 
+RSpec.describe "Validations" do
+  # Between 0/1 and 1/0
+  # FractionTree, SternBrocotTree, ScaleTree
+  #
+  describe FractionTree do
+    let(:number) { Rational(rand(100), rand(100)+1) }
+    it "accepts numbers from zero to fairly large ones" do
+      expect{ described_class.path_to(number) }.to_not raise_error
+      expect{ described_class.parents_of(number) }.to_not raise_error
+      expect{ described_class.descendancy_from(number) }.to_not raise_error
+    end
+  end
+
+  # Between 0/1 and 1/1
+  # FareyTree, KeyboardTree, ScaleStepTree, Log2Tree
+  #
+  describe FareyTree do
+    let(:number) { 7/1r }
+    it "limits number to range [(0/1), (1/1)]" do
+      expect{ described_class.path_to(number) }.to raise_error(ArgumentError, "#{number} not in range of [(0/1), (1/1)]")
+      expect{ described_class.parents_of(number) }.to raise_error(ArgumentError, "#{number} not in range of [(0/1), (1/1)]")
+      expect{ described_class.descendancy_from(number) }.to raise_error(ArgumentError, "#{number} not in range of [(0/1), (1/1)]")
+    end
+  end
+
+  # Between 1/1 and 2/1
+  # OctaveReducedTree
+  #
+  describe OctaveReducedTree do
+    let(:number) { [7/1r, 1/2r].sample }
+    it "limits number to range [(1/1), (2/1)]" do
+      expect{ described_class.path_to(number) }.to raise_error(ArgumentError, "#{number} not in range of [(1/1), (2/1)]")
+      expect{ described_class.parents_of(number) }.to raise_error(ArgumentError, "#{number} not in range of [(1/1), (2/1)]")
+      expect{ described_class.descendancy_from(number) }.to raise_error(ArgumentError, "#{number} not in range of [(1/1), (2/1)]")
+    end
+  end
+end
+
 # SternBrocotTree, ScaleTree
 RSpec.describe FractionTree do
   describe ".base_segment" do

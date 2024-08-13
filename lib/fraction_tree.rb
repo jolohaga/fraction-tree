@@ -66,6 +66,7 @@ class FractionTree
     # @param segment [Array] a tuple of [FractionTree::Node], defining the segment's starting left and right boundaries
     #
     def path_to(number, find_parents: false, segment: base_segment)
+      validate(number)
       return Node.new(number.numerator, number.denominator) if number.zero?
       number = number.kind_of?(Float) ? number.to_d : number
 
@@ -235,6 +236,10 @@ class FractionTree
     end
 
     private
+    def validate(number)
+      raise(ArgumentError, "#{number} not in range of #{base_segment}", caller[0]) unless (base_segment.first.weight..base_segment.last.weight).include?(number)
+    end
+
     def computed_base_segment(number)
       floor = number.floor
       [Node.new(floor,1), Node.new(floor+1,1)]
