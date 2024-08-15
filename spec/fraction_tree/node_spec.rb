@@ -44,4 +44,54 @@ RSpec.describe FractionTree::Node do
       end
     end
   end
+
+  describe "String#to_node" do
+    context "with numerics" do
+      let(:string) { "1/2" }
+
+      it "converts the string to a node with value (1/2)" do
+        expect(string.to_node).to eq described_class.new(1,2)
+      end
+    end
+
+    context "with multiple slashes" do
+      let(:string) { "1/2/3" }
+
+      it "converts the string to a node with value (1/2)" do
+        expect(string.to_node).to eq described_class.new(1,2)
+      end
+    end
+
+    context "with floats" do
+      let(:string) { "3.141592653589793" }
+
+      it "converts the string to a bigdecimal representation (3141592653589793,1000000000000000)" do
+        expect(string.to_node).to eq described_class.new(3141592653589793,1000000000000000)
+      end
+    end
+
+    context "with multiple decimal points" do
+      let(:string) { "3.1415.92653589793" }
+
+      it "converts the string to a node ignoring everything after the second decimal point (6283,2000)" do
+        expect(string.to_node).to eq described_class.new(6283,2000)
+      end
+    end
+
+    context "with alphabetics" do
+      let(:string) { "a" }
+
+      it "defaults to a node with value (0/1)" do
+        expect(string.to_node).to eq described_class.new(0,1)
+      end
+    end
+
+    context "with 0 in the denominator" do
+      let(:string) { "1/0" }
+
+      it "converts the string to a node with value (1/0)" do
+        expect(string.to_node).to eq described_class.new(1,0)
+      end
+    end
+  end
 end
