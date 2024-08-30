@@ -14,6 +14,8 @@ Gem::Specification.new do |spec|
   spec.files       = Dir.glob("lib/**/*")
   spec.required_ruby_version = Gem::Requirement.new(">= 3.1")
   spec.required_rubygems_version = Gem::Requirement.new(">= 3.1")
+  spec.add_runtime_dependency "matrix", ["~> 0.4"]
+  spec.add_runtime_dependency "forwardable", ["~> 1.3"]
   spec.add_runtime_dependency "continued_fractions", ["~> 2.1"]
   spec.add_development_dependency "rspec", ["~> 3.2"]
   spec.add_development_dependency "byebug", ["~> 11.1"]
