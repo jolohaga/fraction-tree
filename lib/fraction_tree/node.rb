@@ -68,7 +68,7 @@ class FractionTree
       # @example
       #   FractionTree::Node.plus_minus(3, 2) => [1, 5]
       # @param
-      #   number the base
+      #   num the base
       #   diff the number subtracted and added to base
       #
       def plus_minus(num, diff)
@@ -90,8 +90,6 @@ class FractionTree
     # @example
     #    FractionTree.node(7/4r).path
     #    => [(0/1), (1/0), (1/1), (2/1), (3/2), (5/3), (7/4)]
-    #
-    # @param find_parents [Boolean] list all ancestors or only immediate parents
     #
     def path
       return nil if infinite? || zero?
@@ -133,8 +131,7 @@ class FractionTree
     # @example
     #   FractionTree.node(3/2r).neighbors(10)
     #   => [(1/1), (2/1), (4/3), (5/3), (7/5), (8/5), (10/7), (11/7), (13/9), (14/9)]
-    # @param number with neighbors
-    # @param r, range of harmonic series to search
+    # @param r range of harmonic series to search
     #
     def neighbors(r = 10**(self.class.decimal_power(number.numerator)+2))
       ratio = number.to_r
@@ -154,7 +151,7 @@ class FractionTree
     #   FractionTree.node(4/3r).common_ancestors_with(7/4r)
     #   => [(0/1), (1/0), (1/1), (2/1), (3/2)]
     #
-    # @param number [Rational] other number sharing descendants with self
+    # @param num [Numeric] other number sharing descendants with self
     #
     def common_ancestors_with(num)
       path & tree.node(num).path
@@ -165,7 +162,6 @@ class FractionTree
     #   FractionTree.node(5/4r).descendancy_from(depth: 3)
     #   => [(1/1), (7/6), (6/5), (11/9), (5/4), (14/11), (9/7), (13/10), (4/3)]
     #
-    # @param number [Rational] around which descendancy is focused
     # @param depth [Integer] how many nodes to collect
     #
     def descendancy_from(depth: 5)

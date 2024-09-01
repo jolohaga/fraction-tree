@@ -6,7 +6,7 @@
 <title>
   File: README
   
-    &mdash; Documentation by YARD 0.9.34
+    &mdash; Documentation by YARD 0.9.36
   
 </title>
 
@@ -64,6 +64,21 @@
 
 <p>A collection of Stern-Brocot based models and methods.</p>
 
+<p>The Stern-Brocot algorithm describes a way of constructing sets of non-negative fractions arranged in a binary tree.</p>
+
+<p>Construction of a SB tree starts by using the fractions 0/1 and 1/0, where 1/0 denotes infinity. Subsequent fractions are derived by the algorithm, (m + m′)/(n + n′), where m/n is the left adjacent fraction and m′/n′ is the right adjacent fraction, and m/n &lt; m′/n′. This sum is called the mediant.</p>
+
+<p>Given m/n = 0/1 and m′/n′ = 1/0, the first mediant sum, is:</p>
+
+<p>0/1 + 1/0 =&gt; (0 + 1)/(1 + 0) = 1/1</p>
+
+<p>Fractions constructed in this way, have the following properties:</p>
+<ol><li>
+<p>m/n &lt; (m + m′)/(n + n′) &lt; m′/n′</p>
+</li><li>
+<p>m’n - mn’ = 1</p>
+</li></ol>
+
 <h2 id="label-Installing">Installing</h2>
 
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_gem'>gem</span> <span class='id identifier rubyid_install'>install</span> <span class='id identifier rubyid_fraction'>fraction</span><span class='op'>-</span><span class='id identifier rubyid_tree'>tree</span>
@@ -79,20 +94,26 @@
 
 <h2 id="label-Acknowledgments">Acknowledgments</h2>
 <ul><li>
+<p>Concrete Mathematics, chapter 4.5  Ronald Graham, Donald Knuth &amp; Oren Patashnik</p>
+</li><li>
 <p><a href="https://en.wikipedia.org/wiki/Stern–Brocot_tree">Introductory reading on the Stern-Brocot tree</a></p>
 </li><li>
-<p><a href="https://anaphoria.com/wilsonintroMOS.html#zig">The Wilson zig-zag (quotient walk) algorithm explained</a></p>
+<p><a href="https://www.ams.org/publicoutreach/feature-column/fcarc-stern-brocot">Trees, Teeth, and Time: The mathematics of clock making</a></p>
+</li><li>
+<p><a href="https://www.cut-the-knot.org/blue/ContinuedFractions.shtml">Continued Fractions on the Stern-Brocot Tree</a></p>
+</li><li>
+<p><a href="https://cp-algorithms.com/others/stern_brocot_tree_farey_sequences.html">The Stern-Brocot tree and Farey sequences</a></p>
+</li><li>
+<p><a href="https://anaphoria.com/wilsonintroMOS.html#zig">The Wilson zig-zag (quotient sum) algorithm explained</a></p>
 </li><li>
 <p><a href="https://anaphoria.com/sctree.pdf">Erv Wilson’s application of the tree to scales</a></p>
-</li><li>
-<p><a href="https://www.ams.org/publicoutreach/feature-column/fcarc-stern-brocot">Trees, Teeth, and Time: The mathematics of clock making</a></p>
 </li></ul>
 </div></div>
 
       <div id="footer">
-  Generated on Tue Jan 16 15:39:36 2024 by
+  Generated on Sat Aug 31 22:23:02 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.34 (ruby-3.2.2).
+  0.9.36 (ruby-3.2.2).
 </div>
 
     </div>
