@@ -6,7 +6,7 @@
 <title>
   Class: FractionTree::Node
   
-    &mdash; Documentation by YARD 0.9.34
+    &mdash; Documentation by YARD 0.9.36
   
 </title>
 
@@ -85,6 +85,11 @@
 
   
   
+  <dl>
+      <dt>Extended by:</dt>
+      <dd>Forwardable</dd>
+  </dl>
+  
   
   
   <dl>
@@ -99,11 +104,37 @@
   
   <dl>
     <dt>Defined in:</dt>
-    <dd>lib/fraction_tree.rb</dd>
+    <dd>lib/fraction_tree/node.rb</dd>
   </dl>
   
 </div>
 
+
+  
+    <h2>
+      Constant Summary
+      <small><a href="#" class="constants_summary_toggle">collapse</a></small>
+    </h2>
+
+    <dl class="constants">
+      
+        <dt id="IDENTITY_MATRIX-constant" class="">IDENTITY_MATRIX =
+          
+        </dt>
+        <dd><pre class="code"><span class='const'>Matrix</span><span class='period'>.</span><span class='id identifier rubyid_identity'>identity</span><span class='lparen'>(</span><span class='int'>2</span><span class='rparen'>)</span></pre></dd>
+      
+        <dt id="LEFT_MATRIX-constant" class="">LEFT_MATRIX =
+          
+        </dt>
+        <dd><pre class="code">Matrix[[1,1]</pre></dd>
+      
+        <dt id="RIGHT_MATRIX-constant" class="">RIGHT_MATRIX =
+          
+        </dt>
+        <dd><pre class="code"></pre></dd>
+      
+    </dl>
+  
 
 
 
@@ -143,6 +174,37 @@
       <li class="public ">
   <span class="summary_signature">
     
+      <a href="#number-instance_method" title="#number (instance method)">#<strong>number</strong>  &#x21d2; Object </a>
+    
+
+    
+      (also: #to_r)
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute number.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#numerator-instance_method" title="#numerator (instance method)">#<strong>numerator</strong>  &#x21d2; Object </a>
     
 
@@ -169,23 +231,29 @@
 </li>
 
     
-      <li class="public ">
+  </ul>
+
+
+
+
+  
+    <h2>
+      Class Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
   <span class="summary_signature">
     
-      <a href="#weight-instance_method" title="#weight (instance method)">#<strong>weight</strong>  &#x21d2; Object </a>
+      <a href="#decimal_power-class_method" title="decimal_power (class method)">.<strong>decimal_power</strong>(logarithmand)  &#x21d2; Integer </a>
     
 
-    
-      (also: #to_r)
     
   </span>
   
   
-  
-    
-      <span class="note title readonly">readonly</span>
-    
-    
   
   
   
@@ -194,17 +262,85 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Returns the value of attribute weight.</p>
+<p>The decimal power of the provided number.</p>
 </div></span>
   
 </li>
 
+      
+        <li class="public ">
+  <span class="summary_signature">
     
-  </ul>
+      <a href="#decode-class_method" title="decode (class method)">.<strong>decode</strong>(string)  &#x21d2; FractionTree::Node </a>
+    
 
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
 
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The fraction decoded from the given string.</p>
+</div></span>
+  
+</li>
 
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#encode-class_method" title="encode (class method)">.<strong>encode</strong>(number)  &#x21d2; String </a>
+    
 
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The Stern-Brocot encoding of number.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#plus_minus-class_method" title="plus_minus (class method)">.<strong>plus_minus</strong>(num, diff)  &#x21d2; Array </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Pair of numbers less and greater than the provided number by provided difference.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
   
     <h2>
       Instance Method Summary
@@ -216,7 +352,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#%2B-instance_method" title="#+ (instance method)">#<strong>+</strong>(rhs)  &#x21d2; Object </a>
+      <a href="#%2B-instance_method" title="#+ (instance method)">#<strong>+</strong>(rhs)  &#x21d2; FractionTree::Node </a>
     
 
     
@@ -230,7 +366,33 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Sum of self and another node.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#--instance_method" title="#- (instance method)">#<strong>-</strong>(rhs)  &#x21d2; FractionTree::Node </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Difference of self and another node.</p>
+</div></span>
   
 </li>
 
@@ -275,6 +437,102 @@
 
   
     <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#child_with-instance_method" title="#child_with (instance method)">#<strong>child_with</strong>(num)  &#x21d2; FractionTree::Node </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Child of self and given number.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#common_ancestors_with-instance_method" title="#common_ancestors_with (instance method)">#<strong>common_ancestors_with</strong>(num)  &#x21d2; Array </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The ancestors shared by self and the given number.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#descendancy_from-instance_method" title="#descendancy_from (instance method)">#<strong>descendancy_from</strong>(depth: 5)  &#x21d2; Array </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Of fraction tree nodes, descending from parents of number.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#encoding-instance_method" title="#encoding (instance method)">#<strong>encoding</strong>  &#x21d2; String </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Encoding of self.</p>
+</div></span>
   
 </li>
 
@@ -328,7 +586,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(n, d)  &#x21d2; Node </a>
+      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(num)  &#x21d2; Node </a>
     
 
     
@@ -375,17 +633,90 @@
 </li>
 
       
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#neighbors-instance_method" title="#neighbors (instance method)">#<strong>neighbors</strong>(r = 10**(self.class.decimal_power(number.numerator)+2))  &#x21d2; Array </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Of [FractionTree::Node], sequence of Farey neighbors to self.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#parents-instance_method" title="#parents (instance method)">#<strong>parents</strong>  &#x21d2; Array </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>A pair of fraction tree nodes leading to the given number.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#path-instance_method" title="#path (instance method)">#<strong>path</strong>  &#x21d2; Array </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Set of fraction tree nodes leading to the given number.</p>
+</div></span>
+  
+</li>
+
+      
     </ul>
   
 
 
+  
   <div id="constructor_details" class="method_details_list">
   <h2>Constructor Details</h2>
   
     <div class="method_details first">
   <h3 class="signature first" id="initialize-instance_method">
   
-    #<strong>initialize</strong>(n, d)  &#x21d2; <tt><span class='object_link'><a href="" title="FractionTree::Node (class)">Node</a></span></tt> 
+    #<strong>initialize</strong>(num)  &#x21d2; <tt><span class='object_link'><a href="" title="FractionTree::Node (class)">Node</a></span></tt> 
   
 
   
@@ -408,19 +739,17 @@
       <pre class="lines">
 
 
-266
-267
-268
-269
-270</pre>
+16
+17
+18
+19</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/fraction_tree.rb', line 266</span>
+      <pre class="code"><span class="info file"># File 'lib/fraction_tree/node.rb', line 16</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_n'>n</span><span class='comma'>,</span><span class='id identifier rubyid_d'>d</span><span class='rparen'>)</span>
-  <span class='ivar'>@numerator</span> <span class='op'>=</span> <span class='id identifier rubyid_n'>n</span>
-  <span class='ivar'>@denominator</span> <span class='op'>=</span> <span class='id identifier rubyid_d'>d</span>
-  <span class='ivar'>@weight</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='id identifier rubyid_d'>d</span> <span class='op'>==</span> <span class='int'>0</span> <span class='op'>?</span> <span class='const'>Float</span><span class='op'>::</span><span class='const'>INFINITY</span> <span class='op'>:</span> <span class='const'>Rational</span><span class='lparen'>(</span><span class='ivar'>@numerator</span><span class='comma'>,</span> <span class='ivar'>@denominator</span><span class='rparen'>)</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_num'>num</span><span class='rparen'>)</span>
+  <span class='lparen'>(</span><span class='ivar'>@numerator</span><span class='comma'>,</span> <span class='ivar'>@denominator</span><span class='rparen'>)</span> <span class='op'>=</span> <span class='id identifier rubyid_fraction_pair'>fraction_pair</span><span class='lparen'>(</span><span class='id identifier rubyid_num'>num</span><span class='rparen'>)</span>
+  <span class='ivar'>@number</span> <span class='op'>=</span> <span class='id identifier rubyid_num'>num</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -460,15 +789,62 @@
       <pre class="lines">
 
 
-264
-265
-266</pre>
+10
+11
+12</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/fraction_tree.rb', line 264</span>
+      <pre class="code"><span class="info file"># File 'lib/fraction_tree/node.rb', line 10</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_denominator'>denominator</span>
   <span class='ivar'>@denominator</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="number-instance_method">
+  
+    #<strong>number</strong>  &#x21d2; <tt>Object</tt>  <span class="extras">(readonly)</span>
+  
+
+  
+    <span class="aliases">Also known as:
+    <span class="names"><span id='to_r-instance_method'>to_r</span></span>
+    </span>
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute number.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+10
+11
+12</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/fraction_tree/node.rb', line 10</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_number'>number</span>
+  <span class='ivar'>@number</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -503,12 +879,12 @@
       <pre class="lines">
 
 
-264
-265
-266</pre>
+10
+11
+12</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/fraction_tree.rb', line 264</span>
+      <pre class="code"><span class="info file"># File 'lib/fraction_tree/node.rb', line 10</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_numerator'>numerator</span>
   <span class='ivar'>@numerator</span>
@@ -518,31 +894,78 @@
 </table>
 </div>
     
-      
-      <span id=""></span>
-      <div class="method_details ">
-  <h3 class="signature " id="weight-instance_method">
+  </div>
+
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="decimal_power-class_method">
   
-    #<strong>weight</strong>  &#x21d2; <tt>Object</tt>  <span class="extras">(readonly)</span>
+    .<strong>decimal_power</strong>(logarithmand)  &#x21d2; <tt>Integer</tt> 
   
 
-  
-    <span class="aliases">Also known as:
-    <span class="names"><span id='to_r-instance_method'>to_r</span></span>
-    </span>
   
 
   
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns the value of attribute weight.</p>
+<p>Returns the decimal power of the provided number.</p>
 
 
   </div>
 </div>
 <div class="tags">
   
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code><span class='const'><span class='object_link'><a href="../FractionTree.html" title="FractionTree (class)">FractionTree</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="FractionTree::Node (class)">Node</a></span></span><span class='period'>.</span><span class='id identifier rubyid_decimal_power'>decimal_power</span><span class='lparen'>(</span><span class='int'>1000</span><span class='rparen'>)</span> <span class='op'>=&gt;</span> <span class='int'>3</span></code></pre>
+    
+  </div>
+<p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>logarithmand</span>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the number from which the log base 10 is obtained</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the decimal power of the provided number</p>
+</div>
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -550,15 +973,290 @@
       <pre class="lines">
 
 
-264
-265
-266</pre>
+84
+85
+86</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/fraction_tree.rb', line 264</span>
+      <pre class="code"><span class="info file"># File 'lib/fraction_tree/node.rb', line 84</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_weight'>weight</span>
-  <span class='ivar'>@weight</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_decimal_power'>decimal_power</span><span class='lparen'>(</span><span class='id identifier rubyid_logarithmand'>logarithmand</span><span class='rparen'>)</span>
+  <span class='const'>Math</span><span class='period'>.</span><span class='id identifier rubyid_log10'>log10</span><span class='lparen'>(</span><span class='id identifier rubyid_logarithmand'>logarithmand</span><span class='period'>.</span><span class='id identifier rubyid_abs'>abs</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_floor'>floor</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="decode-class_method">
+  
+    .<strong>decode</strong>(string)  &#x21d2; <tt><span class='object_link'><a href="" title="FractionTree::Node (class)">FractionTree::Node</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the fraction decoded from the given string.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code>FractionTree::Node.decode(&quot;RLL&quot;) =&gt; (4/3)</code></pre>
+    
+  </div>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="" title="FractionTree::Node (class)">FractionTree::Node</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the fraction decoded from the given string</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/fraction_tree/node.rb', line 28</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_decode'>decode</span><span class='lparen'>(</span><span class='id identifier rubyid_string'>string</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="#IDENTITY_MATRIX-constant" title="FractionTree::Node::IDENTITY_MATRIX (constant)">IDENTITY_MATRIX</a></span></span>
+
+  <span class='id identifier rubyid_string'>string</span><span class='period'>.</span><span class='id identifier rubyid_split'>split</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_direction'>direction</span><span class='op'>|</span>
+    <span class='kw'>case</span> <span class='id identifier rubyid_direction'>direction</span>
+    <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>L</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>0</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>l</span><span class='tstring_end'>&quot;</span></span>
+      <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='id identifier rubyid_result'>result</span> <span class='op'>*</span> <span class='const'><span class='object_link'><a href="#LEFT_MATRIX-constant" title="FractionTree::Node::LEFT_MATRIX (constant)">LEFT_MATRIX</a></span></span>
+    <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>R</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>1</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>r</span><span class='tstring_end'>&quot;</span></span>
+      <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='id identifier rubyid_result'>result</span> <span class='op'>*</span> <span class='const'><span class='object_link'><a href="#RIGHT_MATRIX-constant" title="FractionTree::Node::RIGHT_MATRIX (constant)">RIGHT_MATRIX</a></span></span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+  <span class='const'><span class='object_link'><a href="../FractionTree.html" title="FractionTree (class)">FractionTree</a></span></span><span class='period'>.</span><span class='id identifier rubyid_node'><span class='object_link'><a href="../FractionTree.html#node-class_method" title="FractionTree.node (method)">node</a></span></span><span class='lparen'>(</span><span class='const'>Rational</span><span class='lparen'>(</span><span class='id identifier rubyid_result'>result</span><span class='period'>.</span><span class='id identifier rubyid_row'>row</span><span class='lparen'>(</span><span class='int'>1</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_sum'>sum</span><span class='comma'>,</span> <span class='id identifier rubyid_result'>result</span><span class='period'>.</span><span class='id identifier rubyid_row'>row</span><span class='lparen'>(</span><span class='int'>0</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_sum'>sum</span><span class='rparen'>)</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="encode-class_method">
+  
+    .<strong>encode</strong>(number)  &#x21d2; <tt><span class='object_link'><a href="../String.html" title="String (class)">String</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the Stern-Brocot encoding of number.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code><span class='const'><span class='object_link'><a href="../FractionTree.html" title="FractionTree (class)">FractionTree</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="FractionTree::Node (class)">Node</a></span></span><span class='period'>.</span><span class='id identifier rubyid_encode'>encode</span><span class='lparen'>(</span><span class='int'>4</span><span class='op'>/</span><span class='rational'>3r</span><span class='rparen'>)</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>RLL</span><span class='tstring_end'>&quot;</span></span></code></pre>
+    
+  </div>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../String.html" title="String (class)">String</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the Stern-Brocot encoding of number</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/fraction_tree/node.rb', line 46</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_encode'>encode</span><span class='lparen'>(</span><span class='id identifier rubyid_number'>number</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='kw'>nil</span> <span class='kw'>if</span> <span class='lparen'>(</span><span class='id identifier rubyid_number'>number</span><span class='period'>.</span><span class='id identifier rubyid_infinite?'>infinite?</span> <span class='op'>||</span> <span class='id identifier rubyid_number'>number</span><span class='period'>.</span><span class='id identifier rubyid_zero?'>zero?</span><span class='rparen'>)</span>
+
+  <span class='id identifier rubyid_m'>m</span> <span class='op'>=</span> <span class='id identifier rubyid_number'>number</span><span class='period'>.</span><span class='id identifier rubyid_numerator'>numerator</span>
+  <span class='id identifier rubyid_n'>n</span> <span class='op'>=</span> <span class='id identifier rubyid_number'>number</span><span class='period'>.</span><span class='id identifier rubyid_denominator'>denominator</span>
+
+  <span class='kw'>return</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>I</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='id identifier rubyid_m'>m</span> <span class='op'>==</span> <span class='id identifier rubyid_n'>n</span>
+
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='period'>.</span><span class='id identifier rubyid_tap'>tap</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_string'>string</span><span class='op'>|</span>
+    <span class='kw'>while</span> <span class='id identifier rubyid_m'>m</span> <span class='op'>!=</span> <span class='id identifier rubyid_n'>n</span>
+      <span class='kw'>if</span> <span class='id identifier rubyid_m'>m</span> <span class='op'>&lt;</span> <span class='id identifier rubyid_n'>n</span>
+        <span class='id identifier rubyid_string'>string</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>L</span><span class='tstring_end'>&quot;</span></span>
+        <span class='id identifier rubyid_n'>n</span> <span class='op'>=</span> <span class='id identifier rubyid_n'>n</span> <span class='op'>-</span> <span class='id identifier rubyid_m'>m</span>
+      <span class='kw'>else</span>
+        <span class='id identifier rubyid_string'>string</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>R</span><span class='tstring_end'>&quot;</span></span>
+        <span class='id identifier rubyid_m'>m</span> <span class='op'>=</span> <span class='id identifier rubyid_m'>m</span> <span class='op'>-</span> <span class='id identifier rubyid_n'>n</span>
+      <span class='kw'>end</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="plus_minus-class_method">
+  
+    .<strong>plus_minus</strong>(num, diff)  &#x21d2; <tt>Array</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns pair of numbers less and greater than the provided number by provided difference.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code><span class='const'><span class='object_link'><a href="../FractionTree.html" title="FractionTree (class)">FractionTree</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="FractionTree::Node (class)">Node</a></span></span><span class='period'>.</span><span class='id identifier rubyid_plus_minus'>plus_minus</span><span class='lparen'>(</span><span class='int'>3</span><span class='comma'>,</span> <span class='int'>2</span><span class='rparen'>)</span> <span class='op'>=&gt;</span> <span class='lbracket'>[</span><span class='int'>1</span><span class='comma'>,</span> <span class='int'>5</span><span class='rbracket'>]</span></code></pre>
+    
+  </div>
+<p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>num</span>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the base diff the number subtracted and added to base</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>pair of numbers less and greater than the provided number by provided difference</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+74
+75
+76</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/fraction_tree/node.rb', line 74</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_plus_minus'>plus_minus</span><span class='lparen'>(</span><span class='id identifier rubyid_num'>num</span><span class='comma'>,</span> <span class='id identifier rubyid_diff'>diff</span><span class='rparen'>)</span>
+  <span class='lbracket'>[</span><span class='id identifier rubyid_num'>num</span> <span class='op'>-</span> <span class='id identifier rubyid_diff'>diff</span><span class='comma'>,</span> <span class='id identifier rubyid_num'>num</span> <span class='op'>+</span> <span class='id identifier rubyid_diff'>diff</span><span class='rbracket'>]</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -567,7 +1265,6 @@
     
   </div>
 
-
   <div id="instance_method_details" class="method_details_list">
     <h2>Instance Method Details</h2>
 
@@ -575,27 +1272,133 @@
       <div class="method_details first">
   <h3 class="signature first" id="+-instance_method">
   
-    #<strong>+</strong>(rhs)  &#x21d2; <tt>Object</tt> 
+    #<strong>+</strong>(rhs)  &#x21d2; <tt><span class='object_link'><a href="" title="FractionTree::Node (class)">FractionTree::Node</a></span></tt> 
   
 
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns sum of self and another node.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code>FractionTree.node(5/4r) + FractionTree.node(3/2r)
+=&gt; (4/3)</code></pre>
+    
+  </div>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="" title="FractionTree::Node (class)">FractionTree::Node</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>sum of self and another node</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-302
-303
-304</pre>
+195
+196
+197</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/fraction_tree.rb', line 302</span>
+      <pre class="code"><span class="info file"># File 'lib/fraction_tree/node.rb', line 195</span>
 
 <span class='kw'>def</span> <span class='op'>+</span><span class='lparen'>(</span><span class='id identifier rubyid_rhs'>rhs</span><span class='rparen'>)</span>
-  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_numerator'>numerator</span><span class='op'>+</span><span class='id identifier rubyid_rhs'>rhs</span><span class='period'>.</span><span class='id identifier rubyid_numerator'>numerator</span><span class='comma'>,</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_denominator'>denominator</span><span class='op'>+</span><span class='id identifier rubyid_rhs'>rhs</span><span class='period'>.</span><span class='id identifier rubyid_denominator'>denominator</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_tree'>tree</span><span class='period'>.</span><span class='id identifier rubyid_node'>node</span><span class='lparen'>(</span><span class='const'>Rational</span><span class='lparen'>(</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_numerator'>numerator</span><span class='op'>+</span><span class='id identifier rubyid_rhs'>rhs</span><span class='period'>.</span><span class='id identifier rubyid_numerator'>numerator</span><span class='comma'>,</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_denominator'>denominator</span><span class='op'>+</span><span class='id identifier rubyid_rhs'>rhs</span><span class='period'>.</span><span class='id identifier rubyid_denominator'>denominator</span><span class='rparen'>)</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="--instance_method">
+  
+    #<strong>-</strong>(rhs)  &#x21d2; <tt><span class='object_link'><a href="" title="FractionTree::Node (class)">FractionTree::Node</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns difference of self and another node.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code>FractionTree.node(5/4r) - FractionTree.node(3/2r)
+=&gt; (1/1)</code></pre>
+    
+  </div>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="" title="FractionTree::Node (class)">FractionTree::Node</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>difference of self and another node</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+204
+205
+206</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/fraction_tree/node.rb', line 204</span>
+
+<span class='kw'>def</span> <span class='op'>-</span><span class='lparen'>(</span><span class='id identifier rubyid_rhs'>rhs</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_tree'>tree</span><span class='period'>.</span><span class='id identifier rubyid_node'>node</span><span class='lparen'>(</span><span class='const'>Rational</span><span class='lparen'>(</span><span class='lparen'>(</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_numerator'>numerator</span><span class='op'>-</span><span class='id identifier rubyid_rhs'>rhs</span><span class='period'>.</span><span class='id identifier rubyid_numerator'>numerator</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_abs'>abs</span><span class='comma'>,</span> <span class='lparen'>(</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_denominator'>denominator</span><span class='op'>-</span><span class='id identifier rubyid_rhs'>rhs</span><span class='period'>.</span><span class='id identifier rubyid_denominator'>denominator</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_abs'>abs</span><span class='rparen'>)</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -617,15 +1420,15 @@
       <pre class="lines">
 
 
-279
-280
-281</pre>
+213
+214
+215</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/fraction_tree.rb', line 279</span>
+      <pre class="code"><span class="info file"># File 'lib/fraction_tree/node.rb', line 213</span>
 
 <span class='kw'>def</span> <span class='op'>&lt;=&gt;</span><span class='lparen'>(</span><span class='id identifier rubyid_rhs'>rhs</span><span class='rparen'>)</span>
-  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_weight'>weight</span> <span class='op'>&lt;=&gt;</span> <span class='id identifier rubyid_rhs'>rhs</span><span class='period'>.</span><span class='id identifier rubyid_weight'>weight</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_number'>number</span> <span class='op'>&lt;=&gt;</span> <span class='id identifier rubyid_rhs'>rhs</span><span class='period'>.</span><span class='id identifier rubyid_number'>number</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -647,15 +1450,338 @@
       <pre class="lines">
 
 
-283
-284
-285</pre>
+217
+218
+219</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/fraction_tree.rb', line 283</span>
+      <pre class="code"><span class="info file"># File 'lib/fraction_tree/node.rb', line 217</span>
 
 <span class='kw'>def</span> <span class='op'>==</span><span class='lparen'>(</span><span class='id identifier rubyid_rhs'>rhs</span><span class='rparen'>)</span>
-  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_weight'>weight</span> <span class='op'>==</span> <span class='id identifier rubyid_rhs'>rhs</span><span class='period'>.</span><span class='id identifier rubyid_weight'>weight</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_number'>number</span> <span class='op'>==</span> <span class='id identifier rubyid_rhs'>rhs</span><span class='period'>.</span><span class='id identifier rubyid_number'>number</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="child_with-instance_method">
+  
+    #<strong>child_with</strong>(num)  &#x21d2; <tt><span class='object_link'><a href="" title="FractionTree::Node (class)">FractionTree::Node</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+  <div class="note notetag">
+    <strong>Note:</strong>
+    <div class='inline'>
+<p>return nil if bc - ad |= 1, for a/b, c/d</p>
+</div>
+  </div>
+
+
+<p>Returns child of self and given number.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code>FractionTree.node(5/4r).child_with(4/3r)
+=&gt; (9/7)</code></pre>
+    
+  </div>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="" title="FractionTree::Node (class)">FractionTree::Node</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>child of self and given number</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+178
+179
+180</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/fraction_tree/node.rb', line 178</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_child_with'>child_with</span><span class='lparen'>(</span><span class='id identifier rubyid_num'>num</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_tree'>tree</span><span class='period'>.</span><span class='id identifier rubyid_child_of'>child_of</span><span class='lparen'>(</span><span class='id identifier rubyid_number'>number</span><span class='comma'>,</span> <span class='id identifier rubyid_num'>num</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="common_ancestors_with-instance_method">
+  
+    #<strong>common_ancestors_with</strong>(num)  &#x21d2; <tt>Array</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the ancestors shared by self and the given number.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code>FractionTree.node(4/3r).common_ancestors_with(7/4r)
+=&gt; [(0/1), (1/0), (1/1), (2/1), (3/2)]</code></pre>
+    
+  </div>
+<p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>num</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Numeric.html" title="Numeric (class)">Numeric</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>other number sharing descendants with self</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the ancestors shared by self and the given number</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+156
+157
+158</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/fraction_tree/node.rb', line 156</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_common_ancestors_with'>common_ancestors_with</span><span class='lparen'>(</span><span class='id identifier rubyid_num'>num</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_path'>path</span> <span class='op'>&amp;</span> <span class='id identifier rubyid_tree'>tree</span><span class='period'>.</span><span class='id identifier rubyid_node'>node</span><span class='lparen'>(</span><span class='id identifier rubyid_num'>num</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_path'>path</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="descendancy_from-instance_method">
+  
+    #<strong>descendancy_from</strong>(depth: 5)  &#x21d2; <tt>Array</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns of fraction tree nodes, descending from parents of number.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code>FractionTree.node(5/4r).descendancy_from(depth: 3)
+=&gt; [(1/1), (7/6), (6/5), (11/9), (5/4), (14/11), (9/7), (13/10), (4/3)]</code></pre>
+    
+  </div>
+<p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>depth</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>5</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>how many nodes to collect</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>of fraction tree nodes, descending from parents of number</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+167
+168
+169
+170</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/fraction_tree/node.rb', line 167</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_descendancy_from'>descendancy_from</span><span class='lparen'>(</span><span class='label'>depth:</span> <span class='int'>5</span><span class='rparen'>)</span>
+  <span class='lparen'>(</span><span class='id identifier rubyid_parent1'>parent1</span><span class='comma'>,</span> <span class='id identifier rubyid_parent2'>parent2</span><span class='rparen'>)</span> <span class='op'>=</span> <span class='id identifier rubyid_parents'>parents</span>
+  <span class='id identifier rubyid_tree'>tree</span><span class='period'>.</span><span class='id identifier rubyid_descendants_of'>descendants_of</span><span class='lparen'>(</span><span class='id identifier rubyid_parent1'>parent1</span><span class='period'>.</span><span class='id identifier rubyid_number'>number</span><span class='comma'>,</span> <span class='id identifier rubyid_parent2'>parent2</span><span class='period'>.</span><span class='id identifier rubyid_number'>number</span><span class='comma'>,</span> <span class='label'>depth:</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="encoding-instance_method">
+  
+    #<strong>encoding</strong>  &#x21d2; <tt><span class='object_link'><a href="../String.html" title="String (class)">String</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns encoding of self.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code><span class='const'><span class='object_link'><a href="../FractionTree.html" title="FractionTree (class)">FractionTree</a></span></span><span class='period'>.</span><span class='id identifier rubyid_node'><span class='object_link'><a href="../FractionTree.html#node-class_method" title="FractionTree.node (method)">node</a></span></span><span class='lparen'>(</span><span class='int'>5</span><span class='op'>/</span><span class='rational'>4r</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_encoding'>encoding</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>RLLL</span><span class='tstring_end'>&quot;</span></span></code></pre>
+    
+  </div>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../String.html" title="String (class)">String</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>encoding of self</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+186
+187
+188</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/fraction_tree/node.rb', line 186</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_encoding'>encoding</span>
+  <span class='ivar'>@encoding</span> <span class='op'>||=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_encode'>encode</span><span class='lparen'>(</span><span class='id identifier rubyid_number'>number</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -701,15 +1827,15 @@
       <pre class="lines">
 
 
-292
-293
-294</pre>
+226
+227
+228</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/fraction_tree.rb', line 292</span>
+      <pre class="code"><span class="info file"># File 'lib/fraction_tree/node.rb', line 226</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_eql?'>eql?</span><span class='lparen'>(</span><span class='id identifier rubyid_rhs'>rhs</span><span class='rparen'>)</span>
-   <span class='id identifier rubyid_rhs'>rhs</span><span class='period'>.</span><span class='id identifier rubyid_instance_of?'>instance_of?</span><span class='lparen'>(</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_weight'>weight</span> <span class='op'>==</span> <span class='id identifier rubyid_rhs'>rhs</span><span class='period'>.</span><span class='id identifier rubyid_weight'>weight</span>
+   <span class='id identifier rubyid_rhs'>rhs</span><span class='period'>.</span><span class='id identifier rubyid_instance_of?'>instance_of?</span><span class='lparen'>(</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_number'>number</span> <span class='op'>==</span> <span class='id identifier rubyid_rhs'>rhs</span><span class='period'>.</span><span class='id identifier rubyid_number'>number</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -731,14 +1857,14 @@
       <pre class="lines">
 
 
-296
-297
-298
-299
-300</pre>
+230
+231
+232
+233
+234</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/fraction_tree.rb', line 296</span>
+      <pre class="code"><span class="info file"># File 'lib/fraction_tree/node.rb', line 230</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_hash'>hash</span>
    <span class='id identifier rubyid_p'>p</span><span class='comma'>,</span> <span class='id identifier rubyid_q'>q</span> <span class='op'>=</span> <span class='int'>17</span><span class='comma'>,</span> <span class='int'>37</span>
@@ -769,15 +1895,305 @@
       <pre class="lines">
 
 
-274
-275
-276</pre>
+208
+209
+210</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/fraction_tree.rb', line 274</span>
+      <pre class="code"><span class="info file"># File 'lib/fraction_tree/node.rb', line 208</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_inspect'>inspect</span>
   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>(</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_numerator'>numerator</span><span class='embexpr_end'>}</span><span class='tstring_content'>/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_denominator'>denominator</span><span class='embexpr_end'>}</span><span class='tstring_content'>)</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="neighbors-instance_method">
+  
+    #<strong>neighbors</strong>(r = 10**(self.class.decimal_power(number.numerator)+2))  &#x21d2; <tt>Array</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns of [FractionTree::Node], sequence of Farey neighbors to self. A Farey neighbor is a number c/d, who’s relationship to a/b is such that ad − bc = 1, when c/d &lt; a/b and bc − ad = 1 when c/d &gt; a/b.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code>FractionTree.node(3/2r).neighbors(10)
+=&gt; [(1/1), (2/1), (4/3), (5/3), (7/5), (8/5), (10/7), (11/7), (13/9), (14/9)]</code></pre>
+    
+  </div>
+<p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>r</span>
+      
+      
+        <span class='type'></span>
+      
+      
+        <em class="default">(defaults to: <tt>10**(self.class.decimal_power(number.numerator)+2)</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>range of harmonic series to search</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>of [FractionTree::Node], sequence of Farey neighbors to self. A Farey neighbor is a number c/d, who’s relationship to a/b is such that ad − bc = 1, when c/d &lt; a/b and bc − ad = 1 when c/d &gt; a/b.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/fraction_tree/node.rb', line 136</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_neighbors'>neighbors</span><span class='lparen'>(</span><span class='id identifier rubyid_r'>r</span> <span class='op'>=</span> <span class='int'>10</span><span class='op'>**</span><span class='lparen'>(</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_decimal_power'>decimal_power</span><span class='lparen'>(</span><span class='id identifier rubyid_number'>number</span><span class='period'>.</span><span class='id identifier rubyid_numerator'>numerator</span><span class='rparen'>)</span><span class='op'>+</span><span class='int'>2</span><span class='rparen'>)</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_ratio'>ratio</span> <span class='op'>=</span> <span class='id identifier rubyid_number'>number</span><span class='period'>.</span><span class='id identifier rubyid_to_r'>to_r</span>
+  <span class='id identifier rubyid_denominator'>denominator</span> <span class='op'>=</span> <span class='id identifier rubyid_ratio'>ratio</span><span class='period'>.</span><span class='id identifier rubyid_denominator'>denominator</span>
+
+  <span class='lbracket'>[</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_tap'>tap</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_collection'>collection</span><span class='op'>|</span>
+    <span class='lparen'>(</span><span class='int'>1</span><span class='op'>..</span><span class='id identifier rubyid_r'>r</span><span class='op'>-</span><span class='int'>1</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_i'>i</span><span class='op'>|</span>
+      <span class='id identifier rubyid_lower'>lower</span><span class='comma'>,</span> <span class='id identifier rubyid_upper'>upper</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_plus_minus'>plus_minus</span><span class='lparen'>(</span><span class='id identifier rubyid_ratio'>ratio</span><span class='comma'>,</span> <span class='const'>Rational</span><span class='lparen'>(</span><span class='int'>1</span><span class='comma'>,</span><span class='id identifier rubyid_i'>i</span><span class='op'>*</span><span class='id identifier rubyid_denominator'>denominator</span><span class='rparen'>)</span><span class='rparen'>)</span>
+      <span class='id identifier rubyid_collection'>collection</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_tree'>tree</span><span class='period'>.</span><span class='id identifier rubyid_node'>node</span><span class='lparen'>(</span><span class='id identifier rubyid_lower'>lower</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_tree'>tree</span><span class='period'>.</span><span class='id identifier rubyid_neighbors?'>neighbors?</span><span class='lparen'>(</span><span class='id identifier rubyid_ratio'>ratio</span><span class='comma'>,</span> <span class='id identifier rubyid_lower'>lower</span><span class='rparen'>)</span>
+      <span class='id identifier rubyid_collection'>collection</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_tree'>tree</span><span class='period'>.</span><span class='id identifier rubyid_node'>node</span><span class='lparen'>(</span><span class='id identifier rubyid_upper'>upper</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_tree'>tree</span><span class='period'>.</span><span class='id identifier rubyid_neighbors?'>neighbors?</span><span class='lparen'>(</span><span class='id identifier rubyid_ratio'>ratio</span><span class='comma'>,</span> <span class='id identifier rubyid_upper'>upper</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="parents-instance_method">
+  
+    #<strong>parents</strong>  &#x21d2; <tt>Array</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns a pair of fraction tree nodes leading to the given number.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code>FractionTree.node(15/13r).parents =&gt; [(8/7), (7/6)]
+FractionTree.node(Math::PI).parents =&gt; [(1181999955934188/376242271442657), (1959592697655605/623757728557343)]</code></pre>
+    
+  </div>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>a pair of fraction tree nodes leading to the given number.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+125
+126
+127
+128</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/fraction_tree/node.rb', line 125</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_parents'>parents</span>
+  <span class='id identifier rubyid_tmp'>tmp</span> <span class='op'>=</span> <span class='id identifier rubyid_path'>path</span>
+  <span class='lbracket'>[</span><span class='id identifier rubyid_tmp'>tmp</span><span class='lbracket'>[</span><span class='op'>-</span><span class='int'>2</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id identifier rubyid_tmp'>tmp</span><span class='lbracket'>[</span><span class='op'>-</span><span class='int'>2</span><span class='op'>..</span><span class='op'>-</span><span class='int'>1</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_inject'>inject</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='symbol'>:-</span><span class='rparen'>)</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_sort'>sort</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="path-instance_method">
+  
+    #<strong>path</strong>  &#x21d2; <tt>Array</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns set of fraction tree nodes leading to the given number.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code>FractionTree.node(7/4r).path
+=&gt; [(0/1), (1/0), (1/1), (2/1), (3/2), (5/3), (7/4)]</code></pre>
+    
+  </div>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>set of fraction tree nodes leading to the given number</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/fraction_tree/node.rb', line 94</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_path'>path</span>
+  <span class='kw'>return</span> <span class='kw'>nil</span> <span class='kw'>if</span> <span class='id identifier rubyid_infinite?'>infinite?</span> <span class='op'>||</span> <span class='id identifier rubyid_zero?'>zero?</span>
+
+  <span class='id identifier rubyid_ln'>ln</span> <span class='op'>=</span> <span class='id identifier rubyid_tree'>tree</span><span class='period'>.</span><span class='id identifier rubyid_node'>node</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="../FractionTree.html" title="FractionTree (class)">FractionTree</a></span></span><span class='period'>.</span><span class='id identifier rubyid_left_node'><span class='object_link'><a href="../FractionTree.html#left_node-class_method" title="FractionTree.left_node (method)">left_node</a></span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_rn'>rn</span> <span class='op'>=</span> <span class='id identifier rubyid_tree'>tree</span><span class='period'>.</span><span class='id identifier rubyid_node'>node</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="../FractionTree.html" title="FractionTree (class)">FractionTree</a></span></span><span class='period'>.</span><span class='id identifier rubyid_right_node'><span class='object_link'><a href="../FractionTree.html#right_node-class_method" title="FractionTree.right_node (method)">right_node</a></span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_mn'>mn</span> <span class='op'>=</span> <span class='id identifier rubyid_ln'>ln</span> <span class='op'>+</span> <span class='id identifier rubyid_rn'>rn</span>
+  <span class='kw'>return</span> <span class='lbracket'>[</span><span class='id identifier rubyid_ln'>ln</span><span class='comma'>,</span> <span class='id identifier rubyid_rn'>rn</span><span class='comma'>,</span> <span class='id identifier rubyid_mn'>mn</span><span class='rbracket'>]</span> <span class='kw'>if</span> <span class='id identifier rubyid_mn'>mn</span> <span class='op'>==</span> <span class='id identifier rubyid_tree'>tree</span><span class='period'>.</span><span class='id identifier rubyid_node'>node</span><span class='lparen'>(</span><span class='id identifier rubyid_number'>number</span><span class='rparen'>)</span>
+
+  <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="#IDENTITY_MATRIX-constant" title="FractionTree::Node::IDENTITY_MATRIX (constant)">IDENTITY_MATRIX</a></span></span>
+  <span class='id identifier rubyid_m'>m</span> <span class='op'>=</span> <span class='id identifier rubyid_numerator'>numerator</span>
+  <span class='id identifier rubyid_n'>n</span> <span class='op'>=</span> <span class='id identifier rubyid_denominator'>denominator</span>
+  <span class='lbracket'>[</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_tap'>tap</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_p'>p</span><span class='op'>|</span>
+    <span class='id identifier rubyid_p'>p</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_ln'>ln</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_rn'>rn</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_mn'>mn</span>
+    <span class='kw'>while</span> <span class='id identifier rubyid_m'>m</span> <span class='op'>!=</span> <span class='id identifier rubyid_n'>n</span>
+      <span class='kw'>if</span> <span class='id identifier rubyid_m'>m</span> <span class='op'>&lt;</span> <span class='id identifier rubyid_n'>n</span>
+        <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='id identifier rubyid_result'>result</span> <span class='op'>*</span> <span class='const'><span class='object_link'><a href="#LEFT_MATRIX-constant" title="FractionTree::Node::LEFT_MATRIX (constant)">LEFT_MATRIX</a></span></span>
+        <span class='id identifier rubyid_n'>n</span> <span class='op'>=</span> <span class='id identifier rubyid_n'>n</span> <span class='op'>-</span> <span class='id identifier rubyid_m'>m</span>
+      <span class='kw'>else</span>
+        <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='id identifier rubyid_result'>result</span> <span class='op'>*</span> <span class='const'><span class='object_link'><a href="#RIGHT_MATRIX-constant" title="FractionTree::Node::RIGHT_MATRIX (constant)">RIGHT_MATRIX</a></span></span>
+        <span class='id identifier rubyid_m'>m</span> <span class='op'>=</span> <span class='id identifier rubyid_m'>m</span> <span class='op'>-</span> <span class='id identifier rubyid_n'>n</span>
+      <span class='kw'>end</span>
+      <span class='id identifier rubyid_p'>p</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_tree'>tree</span><span class='period'>.</span><span class='id identifier rubyid_node'>node</span><span class='lparen'>(</span><span class='const'>Rational</span><span class='lparen'>(</span><span class='id identifier rubyid_result'>result</span><span class='period'>.</span><span class='id identifier rubyid_row'>row</span><span class='lparen'>(</span><span class='int'>1</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_sum'>sum</span><span class='comma'>,</span><span class='id identifier rubyid_result'>result</span><span class='period'>.</span><span class='id identifier rubyid_row'>row</span><span class='lparen'>(</span><span class='int'>0</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_sum'>sum</span><span class='rparen'>)</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -789,9 +2205,9 @@
 </div>
 
       <div id="footer">
-  Generated on Tue Jan 16 15:39:36 2024 by
+  Generated on Sat Aug 31 22:23:02 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.34 (ruby-3.2.2).
+  0.9.36 (ruby-3.2.2).
 </div>
 
     </div>

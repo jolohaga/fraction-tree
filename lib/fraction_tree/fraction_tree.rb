@@ -195,7 +195,8 @@ class FractionTree
     #     => [(0/1), (1/3), (1/2), (2/3), (1/1), (3/2), (2/1), (3/1), (1/0)]
     #
     # @param depth [Integer] the number of iterations of the algorithm to run. The number of nodes returned will be greater
-    # @param segment [Array] a tuple array of [FractionTree::Node] defining the segment of the tree to collect nodes.
+    # @param left_node [FractionTree::Node] the left starting node
+    # @param right_node [FractionTree::Node] the right starting node 
     #
     def sequence(depth: 5, left_node: default_left_node, right_node: default_right_node)
       [left_node]+_sequence(depth:, left_node:, right_node:)+[right_node]
