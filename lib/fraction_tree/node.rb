@@ -91,7 +91,7 @@ class FractionTree
     # @example
     #    FractionTree.node(7/4r).path
     #    => [(0/1), (1/0), (1/1), (2/1), (3/2), (5/3), (7/4)]
-    # @limit of nodes to generate
+    # @param limit of nodes to generate
     #
     def path(limit: Float::INFINITY)
       return nil if infinite? || zero?
