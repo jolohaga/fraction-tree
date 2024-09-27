@@ -42,8 +42,9 @@ class FractionTree
       # @return [String] the Stern-Brocot encoding of number
       # @example
       #   FractionTree::Node.encode(4/3r) => "RLL"
+      # @param limit of codes to generate
       #
-      def encode(number)
+      def encode(number, limit: Float::INFINITY)
         return nil if (number.infinite? || number.zero?)
 
         m = number.numerator
@@ -52,7 +53,7 @@ class FractionTree
         return "I" if m == n
 
         "".tap do |string|
-          while m != n
+          while m != n && string.length < limit
             if m < n
               string << "L"
               n = n - m
@@ -90,8 +91,9 @@ class FractionTree
     # @example
     #    FractionTree.node(7/4r).path
     #    => [(0/1), (1/0), (1/1), (2/1), (3/2), (5/3), (7/4)]
+    # @limit of nodes to generate
     #
-    def path
+    def path(limit: Float::INFINITY)
       return nil if infinite? || zero?
 
       ln = tree.node(FractionTree.left_node)
@@ -104,7 +106,7 @@ class FractionTree
       n = denominator
       [].tap do |p|
         p << ln << rn << mn
-        while m != n
+        while m != n && p.length < limit
           if m < n
             result = result * LEFT_MATRIX
             n = n - m
@@ -181,10 +183,11 @@ class FractionTree
 
     # @return [String] encoding of self
     # @example
-    #   FractionTree.node(5/4r).encoding => "RLLL"
+    #   FractionTree.node(Math.log2(5/4r)).encoding(limit: 30) => "LLLRRRRRRRRRLLRRLLLLRRRRRRLLRL"
+    # @param limit of codes to generate
     #
-    def encoding
-      @encoding ||= self.class.encode(number)
+    def encoding(limit: Float::INFINITY)
+      self.class.encode(number, limit:)
     end
 
     # @return [FractionTree::Node] sum of self and another node

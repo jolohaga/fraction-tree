@@ -2,7 +2,7 @@ require "date"
 
 Gem::Specification.new do |spec|
   spec.name        = "fraction-tree"
-  spec.version     = "2.0.1"
+  spec.version     = "2.1.0"
   spec.summary     = "Fraction tree"
   spec.description = "A collection of Stern-Brocot based models and methods"
   spec.authors     = ["Jose Hales-Garcia"]
