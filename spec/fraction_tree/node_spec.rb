@@ -36,6 +36,12 @@ RSpec.describe FractionTree::Node do
     it "returns the string encoding the node" do
       expect(described_class.encode(4/3r)).to eq "RLL"
     end
+
+    context "with limit" do
+      it "returns the limit of encodings" do
+        expect(described_class.encode(Math.log2(5/4r), limit: 30).length).to eq 30
+      end
+    end
   end
 
   describe ".plus_minus" do
@@ -114,6 +120,12 @@ RSpec.describe FractionTree::Node do
           expect{ described_class.new(number).path }.to perform_under(0.3).ms
         end
       end
+
+      context "with limit" do
+        it "returns the limit of nodes" do
+          expect(described_class.new(number).path(limit: 10).count).to eq 10
+        end
+      end
     end
   end
 
@@ -185,6 +197,12 @@ RSpec.describe FractionTree::Node do
   describe "#encoding" do
     it "returns the encoded string of self" do
       expect(described_class.new(4/3r).encoding).to eq "RLL"
+    end
+
+    context "with limit" do
+      it "returns the limit of encodings" do
+        expect(described_class.new(Math.log2(5/4r)).encoding(limit: 30).length).to eq 30
+      end
     end
   end
 
