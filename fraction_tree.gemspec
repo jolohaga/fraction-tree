@@ -2,7 +2,7 @@ require "date"
 
 Gem::Specification.new do |spec|
   spec.name        = "fraction-tree"
-  spec.version     = "2.1.1"
+  spec.version     = "2.1.2"
   spec.summary     = "Fraction tree"
   spec.description = "A collection of Stern-Brocot based models and methods"
   spec.authors     = ["Jose Hales-Garcia"]
@@ -18,6 +18,7 @@ Gem::Specification.new do |spec|
   spec.required_rubygems_version = Gem::Requirement.new(">= 3.1")
   spec.rubygems_version = "3.5.23"
   spec.add_runtime_dependency "matrix", ["~> 0.4"]
+  spec.add_runtime_dependency "bigdecimal", ["~> 3"]
   spec.add_runtime_dependency "forwardable", ["~> 1.3"]
   spec.add_runtime_dependency "continued_fractions", ["~> 2.1"]
   spec.add_development_dependency "rspec", ["~> 3"]
