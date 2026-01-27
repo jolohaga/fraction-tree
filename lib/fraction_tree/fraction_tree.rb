@@ -53,7 +53,8 @@ class FractionTree
     # @example
     #   FractionTree.range = :farey
     #   => (0/1..1/1)
-    # @note Accepts keywords:
+    # @param rhs [Symbol] the range to set
+    # @note supported symbols:
     #   :farey, :keyboard, :scale_step, :log2 => (0/1..1/1)
     #   :stern_brocot, :scale => (0/1..1/0)
     #   :octave_reduced => (1/1..2/1)
@@ -88,6 +89,7 @@ class FractionTree
     # @return [FractionTree::Node] the node in the tree representing the given number
     # @example
     #   FractionTree.node(3/2r) => (3/2)
+    # @param number [Numeric] the number to find in the tree
     #
     def node(number)
       validate(number)
@@ -97,6 +99,7 @@ class FractionTree
     # @return [FractionTree::Node] the node decoded from the given string
     # @example
     #   FractionTree.decode("RLL") => (4/3)
+    # @param str [String] the Stern-Brocot encoding of the number
     #
     def decode(str)
       wrk_node = Node.decode(str)
@@ -106,6 +109,8 @@ class FractionTree
     # @return [FractionTree::Node] the mediant sum of the given numbers
     # @example
     #   FractionTree.mediant_sum(3/2r, 4/3r) => (7/5)
+    # @param n1 [Rational] one of two numbers to sum
+    # @param n2 [Rational] two of two numbers to sum
     #
     def mediant_sum(n1, n2)
       Node.new(n1) + Node.new(n2)
@@ -134,7 +139,6 @@ class FractionTree
     #       [(1/1)],
     #       [(1/2), (2/1)],
     #       [(1/3), (2/3), (3/2), (3/1)]]
-    #
     # @param depth [Integer] the depth of the tree
     # @param left_node [FractionTree::Node] the left starting node
     # @param right_node [FractionTree::Node] the right starting node
@@ -163,7 +167,6 @@ class FractionTree
     # @example
     #   FractionTree.child_of(1/1r, 4/3r) => (5/4)
     #   FractionTree.child_of(7/4r, 4/3r) => nil
-    #
     # @param number1 [Rational] one of two parents
     # @param number2 [Rational] two of two parents
     # @note return nil if bc - ad |= 1, for a/b, c/d
@@ -191,12 +194,12 @@ class FractionTree
 
     # @return [Array] a sequence of fraction tree nodes
     # @example
-    #   FractionTree.new.sequence(3)
+    #   FractionTree.sequence(depth: 3)
     #     => [(0/1), (1/3), (1/2), (2/3), (1/1), (3/2), (2/1), (3/1), (1/0)]
     #
     # @param depth [Integer] the number of iterations of the algorithm to run. The number of nodes returned will be greater
     # @param left_node [FractionTree::Node] the left starting node
-    # @param right_node [FractionTree::Node] the right starting node 
+    # @param right_node [FractionTree::Node] the right starting node
     #
     def sequence(depth: 5, left_node: default_left_node, right_node: default_right_node)
       [left_node]+_sequence(depth:, left_node:, right_node:)+[right_node]
