@@ -16,6 +16,18 @@ Fractions constructed in this way, have the following properties:
 1. m/n < (m + m′)/(n + n′) < m′/n′
 2. m'n - mn' = 1
 
+## Further Reading
+
+* Concrete Mathematics, chapter 4.5
+  Ronald Graham, Donald Knuth & Oren Patashnik
+* [Introductory reading on the Stern-Brocot tree](https://en.wikipedia.org/wiki/Stern–Brocot_tree)
+* [Trees, Teeth, and Time: The mathematics of clock making](https://www.ams.org/publicoutreach/feature-column/fcarc-stern-brocot)
+* [Stern-Brocot Tree](https://www.cut-the-knot.org/blue/Stern.shtml)
+* [Continued Fractions on the Stern-Brocot Tree](https://www.cut-the-knot.org/blue/ContinuedFractions.shtml)
+* [The Stern-Brocot tree and Farey sequences](https://cp-algorithms.com/others/stern_brocot_tree_farey_sequences.html)
+* [The Wilson zig-zag (quotient sum) algorithm explained](https://anaphoria.com/wilsonintroMOS.html#zig)
+* [Erv Wilson's application of the tree to scales](https://anaphoria.com/sctree.pdf)
+
 ## Installing
 
     gem install fraction-tree
@@ -27,15 +39,3 @@ Fractions constructed in this way, have the following properties:
 ## License
 
 This project is licensed under the [MIT] License.
-
-## Acknowledgments
-
-* Concrete Mathematics, chapter 4.5
-  Ronald Graham, Donald Knuth & Oren Patashnik
-* [Introductory reading on the Stern-Brocot tree](https://en.wikipedia.org/wiki/Stern–Brocot_tree)
-* [Trees, Teeth, and Time: The mathematics of clock making](https://www.ams.org/publicoutreach/feature-column/fcarc-stern-brocot)
-* [Stern-Brocot Tree](https://www.cut-the-knot.org/blue/Stern.shtml)
-* [Continued Fractions on the Stern-Brocot Tree](https://www.cut-the-knot.org/blue/ContinuedFractions.shtml)
-* [The Stern-Brocot tree and Farey sequences](https://cp-algorithms.com/others/stern_brocot_tree_farey_sequences.html)
-* [The Wilson zig-zag (quotient sum) algorithm explained](https://anaphoria.com/wilsonintroMOS.html#zig)
-* [Erv Wilson's application of the tree to scales](https://anaphoria.com/sctree.pdf)
