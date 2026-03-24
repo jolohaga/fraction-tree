@@ -34,6 +34,7 @@ This project is licensed under the [MIT] License.
   Ronald Graham, Donald Knuth & Oren Patashnik
 * [Introductory reading on the Stern-Brocot tree](https://en.wikipedia.org/wiki/Stern–Brocot_tree)
 * [Trees, Teeth, and Time: The mathematics of clock making](https://www.ams.org/publicoutreach/feature-column/fcarc-stern-brocot)
+* [Stern-Brocot Tree](https://www.cut-the-knot.org/blue/Stern.shtml)
 * [Continued Fractions on the Stern-Brocot Tree](https://www.cut-the-knot.org/blue/ContinuedFractions.shtml)
 * [The Stern-Brocot tree and Farey sequences](https://cp-algorithms.com/others/stern_brocot_tree_farey_sequences.html)
 * [The Wilson zig-zag (quotient sum) algorithm explained](https://anaphoria.com/wilsonintroMOS.html#zig)
