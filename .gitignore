@@ -2,6 +2,7 @@
 .byebug_history
 .yardoc
 .rspec
+.claude
 tmp
 notes
 .Gemfile

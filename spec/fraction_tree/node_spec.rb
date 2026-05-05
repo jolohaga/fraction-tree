@@ -174,6 +174,15 @@ RSpec.describe FractionTree::Node do
     end
   end
 
+  describe "#nearest_common_ancestor_with" do
+    let(:number1) { 7/6r }
+    let(:number2) { 15/13r }
+    let(:expected_node) { described_class.new(7/6r) }
+    it "returns the last node in common between the paths to the two numbers" do
+      expect(described_class.new(number1).nearest_common_ancestor_with(number2)).to eq expected_node
+    end
+  end
+
   describe "#descendancy_from" do
     let(:number) { 5/4r }
     let(:depth) { 3 }

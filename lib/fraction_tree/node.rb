@@ -159,6 +159,18 @@ class FractionTree
       path & tree.node(num).path
     end
 
+    # @return [FractionTree::Node] the nearest common ancestor of self and the given number
+    # @example
+    #   FractionTree.node(4/3r).nearest_common_ancestor_with(7/4r)
+    #   => (3/2)
+    #
+    # @param num [Numeric] other number sharing descendants with self
+    #
+    def nearest_common_ancestor_with(num)
+      common_ancestors_with(num).last
+    end
+    alias :nca_with :nearest_common_ancestor_with
+
     # @return [Array] of fraction tree nodes, descending from parents of number
     # @example
     #   FractionTree.node(5/4r).descendancy_from(depth: 3)
